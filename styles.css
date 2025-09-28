@@ -18,16 +18,16 @@ body {
     padding: 0 20px;
 }
 
-/* Header and Navigation */
+/* Header and Navigation - Minimalist Black */
 header {
-    background: linear-gradient(135deg, #5a5a5a 0%, #3a3a3a 25%, #2a2a2a 75%, #1a1a1a 100%);
+    background: #000;
     color: white;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav-container {
@@ -37,43 +37,68 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    flex-shrink: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
-    flex-wrap: wrap;
+    gap: 2.5rem;
     align-items: center;
 }
 
 .nav-links a {
-    color: white;
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: white;
 }
 
-/* Resume Header Section */
-.resume-header {
-    background: linear-gradient(135deg, #5a5a5a 0%, #3a3a3a 25%, #2a2a2a 75%, #1a1a1a 100%);
+.nav-links a.active {
     color: white;
-    padding: 120px 0 80px;
-    margin-top: 80px;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: white;
+}
+
+/* Resume Header Section - Minimalist Hero */
+.resume-header {
+    background: #000;
+    color: white;
+    padding: 140px 0 80px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    min-height: 60vh;
+    position: relative;
+}
+
+.resume-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
 }
 
 .resume-intro {
@@ -86,50 +111,74 @@ header {
 .profile-section {
     display: flex;
     align-items: center;
-    gap: 3rem;
-    max-width: 800px;
+    gap: 4rem;
+    max-width: 900px;
     width: 100%;
 }
 
 .profile-photo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
 }
 
 .contact-info h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
     color: white;
+    font-weight: 500;
+    letter-spacing: -1px;
 }
 
 .contact-info .email {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+    font-weight: 300;
 }
 
 .linkedin-link {
     display: inline-flex;
     align-items: center;
-    background: black;
+    background: transparent;
     color: white;
-    padding: 12px 25px;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 2px solid black;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .linkedin-link:hover {
     background: white;
     color: black;
-    border: 2px solid white;
+    border: 1px solid white;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    margin-left: 1rem;
+}
+
+.github-link:hover {
+    background: white;
+    color: black;
+    border: 1px solid white;
 }
 
 /* Resume Sections */
@@ -168,7 +217,7 @@ header {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: #333;
-    border-bottom: 3px solid #4a4a4a;
+    border-bottom: 3px solid #000;
     padding-bottom: 0.5rem;
     width: 100%;
 }
@@ -186,7 +235,7 @@ header {
 
 .education-item h3 {
     font-size: 1.8rem;
-    color: #4a4a4a;
+    color: #000;
     margin-bottom: 0.5rem;
 }
 
@@ -217,14 +266,16 @@ header {
     background: #f8f9fa;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: #4a4a4a;
+    color: #000;
     font-weight: 500;
     border: 1px solid #e9ecef;
-    transition: border-color 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .relevant-courses li:hover {
     border: 1px solid black;
+    background: #000;
+    color: white;
 }
 
 /* Projects Section */
@@ -270,7 +321,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
     overflow: hidden;
 }
 
@@ -291,6 +342,7 @@ header {
 
 .project-card:hover {
     border: 1px solid black;
+    transform: translateY(-2px);
     cursor: pointer;
 }
 
@@ -311,14 +363,14 @@ header {
 .project-link {
     display: inline-flex;
     align-items: center;
-    color: #4a4a4a;
+    color: #000;
     text-decoration: none;
     font-weight: 600;
     margin-top: 1rem;
 }
 
 .project-link:hover {
-    color: #2d2d2d;
+    text-decoration: underline;
 }
 
 .project-card h3 {
@@ -391,37 +443,37 @@ header {
 }
 
 .contact-item a {
-    color: #4a4a4a;
+    color: #000;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 .contact-item a:hover {
-    color: #2d2d2d;
+    opacity: 0.7;
+    text-decoration: underline;
 }
 
 .contact-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #5a5a5a 0%, #3a3a3a 25%, #2a2a2a 75%, #1a1a1a 100%);
+    background: #000;
     color: white;
     padding: 12px 25px;
     text-decoration: none;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    border-radius: 4px;
+    transition: all 0.2s ease;
     min-width: 120px;
 }
 
 .contact-link:hover {
-    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 25%, #1a1a1a 75%, #0a0a0a 100%);
+    background: #222;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(90, 90, 90, 0.4);
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: #000;
     color: white;
     padding: 2rem 0;
     display: flex;
@@ -434,6 +486,11 @@ footer .container {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+footer p {
+    opacity: 0.7;
+    font-size: 0.95rem;
 }
 
 /* Animations */
@@ -450,11 +507,11 @@ footer .container {
 
 /* Additional Page Styles */
 .page-header {
-    background: linear-gradient(135deg, #5a5a5a 0%, #3a3a3a 25%, #2a2a2a 75%, #1a1a1a 100%);
+    background: #000;
     color: white;
     padding: 120px 0 80px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .page-header h1 {
@@ -465,7 +522,7 @@ footer .container {
 
 .page-header p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 .project-image-header {
@@ -503,7 +560,7 @@ footer .container {
 }
 
 .about-text h3 {
-    color: #667eea;
+    color: #000;
     margin: 2rem 0 1rem 0;
     font-size: 1.3rem;
 }
@@ -530,13 +587,6 @@ footer .container {
     padding: 3rem;
     text-align: center;
     color: #999;
-}
-
-.nav-links a.active {
-    color: white;
-    font-weight: bold;
-    border-bottom: 2px solid white;
-    padding-bottom: 2px;
 }
 
 /* Project Page Styles */
@@ -575,7 +625,7 @@ footer .container {
 }
 
 .project-header time {
-    color: #4a4a4a;
+    color: #000;
     font-size: 1.1rem;
     font-weight: 500;
 }
@@ -594,7 +644,7 @@ footer .container {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .project-image img:hover {
@@ -615,7 +665,7 @@ footer .container {
     padding: 2rem;
     background: #f8f9fa;
     border-radius: 10px;
-    border-left: 4px solid #4a4a4a;
+    border-left: 4px solid #000;
 }
 
 .project-description h3,
@@ -663,7 +713,7 @@ footer .container {
 }
 
 .project-description li::marker {
-    color: #4a4a4a;
+    color: #000;
 }
 
 .skills-grid {
@@ -686,7 +736,7 @@ footer .container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .skill-category:hover {
@@ -694,7 +744,7 @@ footer .container {
 }
 
 .skill-category h4 {
-    color: #4a4a4a;
+    color: #000;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
@@ -724,7 +774,7 @@ footer .container {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #4a4a4a;
+    color: #000;
     font-weight: bold;
 }
 
@@ -734,12 +784,12 @@ footer .container {
 
 /* Accessibility improvements */
 .project-image img:focus {
-    outline: 3px solid #4a4a4a;
+    outline: 3px solid #000;
     outline-offset: 2px;
 }
 
 .skill-category:focus-within {
-    outline: 2px solid #4a4a4a;
+    outline: 2px solid #000;
     outline-offset: 2px;
 }
 
@@ -759,68 +809,92 @@ footer .container {
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     .project-image img,
-    .skill-category {
+    .skill-category,
+    .project-card,
+    .linkedin-link,
+    .contact-link {
         transition: none;
     }
     
     .project-image img:hover,
-    .skill-category:hover {
+    .skill-category:hover,
+    .project-card:hover {
         transform: none;
     }
 }
 
-/* Responsive Design */
+/* Responsive Design - Improved Mobile Header */
 @media (max-width: 768px) {
+    /* Compact Mobile Header */
+    header {
+        padding: 0.8rem 0;
+    }
+    
     .nav-container {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
     }
     
     .nav-links {
-        gap: 1rem;
-        justify-content: center;
+        gap: 1.2rem;
     }
     
-    .hero-content h2 {
-        font-size: 2rem;
+    .nav-links a {
+        font-size: 0.85rem;
     }
     
-    .hero-content p {
-        font-size: 1rem;
+    /* Mobile Hero/Resume Header */
+    .resume-header {
+        padding: 100px 0 60px;
+        margin-top: 50px;
+        min-height: auto;
     }
     
-    .project-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .project-card {
-        max-width: 100%;
-        min-width: auto;
-    }
-    
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    /* Resume mobile adjustments */
     .profile-section {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
     }
     
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
     .contact-info h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .contact-info .email {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
+    .linkedin-link {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .github-link {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        margin-left: 0;
+    }
+    
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    /* Other mobile adjustments */
     .objective h2,
     .education h2,
     .skills h2 {
@@ -855,6 +929,16 @@ footer .container {
     }
     
     /* Project page mobile adjustments */
+    .project-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-card {
+        max-width: 100%;
+        min-width: auto;
+    }
+    
     .skills-grid {
         flex-direction: column;
         align-items: center;
@@ -878,12 +962,40 @@ footer .container {
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 100px 0 60px;
+    /* Extra compact mobile header */
+    header {
+        padding: 0.7rem 0;
     }
     
-    .hero-content h2 {
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+    
+    /* Very small mobile hero */
+    .resume-header {
+        padding: 80px 0 50px;
+        margin-top: 45px;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .contact-info h1 {
         font-size: 1.8rem;
+    }
+    
+    .contact-info .email {
+        font-size: 0.95rem;
     }
     
     .about, .projects, .contact {
@@ -891,6 +1003,18 @@ footer .container {
     }
     
     .about h2, .projects h2, .contact h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+}
+
+/* Hamburger menu for very small screens */
+@media (max-width: 360px) {
+    .nav-links {
+        gap: 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
     }
 }
