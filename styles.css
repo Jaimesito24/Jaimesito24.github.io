@@ -214,6 +214,14 @@ header {
     border: 1px solid white;
 }
 
+/* Social links container - desktop styling */
+.social-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 /* Resume Sections */
 .objective,
 .education,
@@ -950,8 +958,12 @@ footer p {
     }
     
     .page-header {
-        padding: 80px 0 40px;
+        padding: 40px 0 40px;
         margin-top: 70px;
+        min-height: 380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Mobile text size controls for Project headers */
@@ -987,7 +999,8 @@ footer p {
         padding: 8px 18px;
         font-size: 0.9rem;
         margin-left: 0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
+        margin-right: 0.5rem;
     }
     
     .github-link {
@@ -1001,6 +1014,15 @@ footer p {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+    }
+    
+    /* Style the social links container to display buttons in a row on mobile */
+    .social-links {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Other mobile adjustments */
@@ -1104,8 +1126,12 @@ footer p {
     
     /* Very small mobile project headers */
     .page-header {
-        padding: 60px 0 30px;
+        padding: 30px 0 30px;
         margin-top: 65px;
+        min-height: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Small mobile text size controls */
