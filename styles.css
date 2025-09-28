@@ -82,12 +82,12 @@ header {
 .resume-header {
     background: #000;
     color: white;
-    padding: 140px 0 80px;
+    padding: 0px 0 0px;
     margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 356px;
     position: relative;
 }
 
@@ -680,17 +680,11 @@ footer p {
 .project-description h3::before,
 .skills-learned h3::before,
 .project-challenges h3::before {
-    content: "📋";
+    content: "•";
     margin-right: 0.5rem;
     font-size: 1.2rem;
-}
-
-.skills-learned h3::before {
-    content: "🎯";
-}
-
-.project-challenges h3::before {
-    content: "💡";
+    color: #000;
+    font-weight: bold;
 }
 
 .project-description p,
@@ -730,7 +724,7 @@ footer p {
     border-radius: 8px;
     border: 1px solid #d1d5db;
     flex: 1;
-    min-width: 300px;
+    width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
@@ -751,9 +745,11 @@ footer p {
 }
 
 .skill-category h4::before {
-    content: "⚡";
+    content: "•";
     margin-right: 0.5rem;
     font-size: 1.1rem;
+    color: #000;
+    font-weight: bold;
 }
 
 .skill-category ul {
