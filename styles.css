@@ -399,15 +399,19 @@ header {
 .contact .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    text-align: center;
+    max-width: 1000px;
+    width: 100%;
 }
 
 .contact h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: #333;
+    border-bottom: 3px solid #000;
+    padding-bottom: 0.5rem;
+    width: 100%;
 }
 
 .contact p {
@@ -430,6 +434,7 @@ header {
     gap: 1.5rem;
     max-width: 600px;
     width: 100%;
+    align-items: flex-start;
 }
 
 .contact-item {
@@ -438,6 +443,7 @@ header {
     gap: 1rem;
     font-size: 1.1rem;
     color: #555;
+    justify-content: flex-start;
 }
 
 .contact-item strong {
@@ -873,7 +879,22 @@ footer p {
     .resume-header {
         padding: 100px 0 60px;
         margin-top: 50px;
-        min-height: auto;
+        min-height: 360px; /* Mobile height control - you can change this */
+    }
+    
+    /* Mobile Project Page Headers */
+    .page-header {
+        padding: 80px 0 40px;
+        margin-top: 50px;
+    }
+    
+    /* Mobile text size controls for Project 1 and Project 2 headers */
+    .page-header h1 {
+        font-size: 2rem !important; /* Mobile override - you can change this */
+    }
+    
+    .page-header p {
+        font-size: 1.2rem; /* Default size - you can change this */
     }
     
     .profile-section {
@@ -1004,6 +1025,22 @@ footer p {
     .resume-header {
         padding: 80px 0 50px;
         margin-top: 45px;
+        min-height: 300px; /* Small mobile height control - you can change this */
+    }
+    
+    /* Very small mobile project headers */
+    .page-header {
+        padding: 60px 0 30px;
+        margin-top: 45px;
+    }
+    
+    /* Small mobile text size controls for Project 1 and Project 2 headers */
+    .page-header h1 {
+        font-size: 2rem !important; /* Small mobile override - you can change this */
+    }
+    
+    .page-header p {
+        font-size: 1.2rem; /* Default size - you can change this */
     }
     
     .profile-photo {
