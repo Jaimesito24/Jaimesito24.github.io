@@ -78,6 +78,39 @@ header {
     background: white;
 }
 
+/* Mobile Menu Toggle Button - Hidden by default */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Resume Header Section - Minimalist Hero */
 .resume-header {
     background: #000;
@@ -850,53 +883,87 @@ footer p {
     }
 }
 
-/* Responsive Design - Improved Mobile Header */
+/* Responsive Design - Mobile with Hamburger Menu */
 @media (max-width: 768px) {
-    /* Compact Mobile Header */
+    /* Mobile Header with Hamburger */
     header {
-        padding: 0.8rem 0;
+        padding: 1.2rem 0; /* Taller mobile header */
+        min-height: 70px; /* Ensure minimum height */
     }
     
     .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        position: relative;
     }
     
     .logo {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
+    /* Show hamburger menu button */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile navigation menu */
     .nav-links {
-        gap: 1.2rem;
+        position: fixed;
+        top: 70px; /* Match header height */
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: #000;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        border-left: 1px solid rgba(255,255,255,0.1);
+        overflow-y: auto;
+    }
+    
+    .nav-links.active {
+        right: 0;
     }
     
     .nav-links a {
-        font-size: 0.85rem;
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    /* Mobile Hero/Resume Header */
+    .nav-links a.active::after {
+        display: none;
+    }
+    
+    .nav-links a.active {
+        color: white;
+        font-weight: 600;
+    }
+    
+    /* Adjust content for taller header */
     .resume-header {
         padding: 100px 0 60px;
-        margin-top: 50px;
-        min-height: 360px; /* Mobile height control - you can change this */
+        margin-top: 70px;
+        min-height: 380px;
     }
     
-    /* Mobile Project Page Headers */
     .page-header {
         padding: 80px 0 40px;
-        margin-top: 50px;
+        margin-top: 70px;
     }
     
-    /* Mobile text size controls for Project 1 and Project 2 headers */
+    /* Mobile text size controls for Project headers */
     .page-header h1 {
-        font-size: 2rem !important; /* Mobile override - you can change this */
+        font-size: 2rem !important;
     }
     
     .page-header p {
-        font-size: 1.2rem; /* Default size - you can change this */
+        font-size: 1.2rem;
     }
     
+    /* Profile section mobile adjustments */
     .profile-section {
         flex-direction: column;
         text-align: center;
@@ -939,7 +1006,9 @@ footer p {
     /* Other mobile adjustments */
     .objective h2,
     .education h2,
-    .skills h2 {
+    .skills h2,
+    .projects h2,
+    .contact h2 {
         font-size: 2rem;
     }
     
@@ -1006,41 +1075,46 @@ footer p {
 @media (max-width: 480px) {
     /* Extra compact mobile header */
     header {
-        padding: 0.7rem 0;
+        padding: 1rem 0;
+        min-height: 65px;
     }
     
     .logo {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .nav-links {
-        gap: 0.8rem;
+        top: 65px;
+        height: calc(100vh - 65px);
+        width: 85%;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
     
     .nav-links a {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     
     /* Very small mobile hero */
     .resume-header {
         padding: 80px 0 50px;
-        margin-top: 45px;
-        min-height: 300px; /* Small mobile height control - you can change this */
+        margin-top: 65px;
+        min-height: 340px;
     }
     
     /* Very small mobile project headers */
     .page-header {
         padding: 60px 0 30px;
-        margin-top: 45px;
+        margin-top: 65px;
     }
     
-    /* Small mobile text size controls for Project 1 and Project 2 headers */
+    /* Small mobile text size controls */
     .page-header h1 {
-        font-size: 2rem !important; /* Small mobile override - you can change this */
+        font-size: 1.8rem !important;
     }
     
     .page-header p {
-        font-size: 1.2rem; /* Default size - you can change this */
+        font-size: 1.1rem;
     }
     
     .profile-photo {
@@ -1056,23 +1130,52 @@ footer p {
         font-size: 0.95rem;
     }
     
-    .about, .projects, .contact {
+    .objective, .education, .projects, .skills, .contact {
         padding: 60px 0;
     }
     
-    .about h2, .projects h2, .contact h2 {
+    .objective h2, .education h2, .projects h2, .skills h2, .contact h2 {
         font-size: 1.8rem;
     }
 }
 
-/* Hamburger menu for very small screens */
+/* Extra small screens */
 @media (max-width: 360px) {
-    .nav-links {
-        gap: 0.6rem;
-        font-size: 0.75rem;
+    header {
+        padding: 0.9rem 0;
+        min-height: 60px;
     }
     
     .logo {
-        font-size: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 3px;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 22px;
+        margin: 2.5px 0;
+    }
+    
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
+        width: 90%;
+        padding: 1.2rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+    
+    .resume-header {
+        margin-top: 60px;
+        min-height: 320px;
+    }
+    
+    .page-header {
+        margin-top: 60px;
     }
 }
